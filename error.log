@@ -6634,3 +6634,203 @@ Stack trace:
 [15-Sep-2025 18:14:58 Asia/Manila] Found 3 admin users to notify
 [15-Sep-2025 18:14:58 Asia/Manila] Notification content prepared: 213 Asd (College) has submitted a medical certificate
 [15-Sep-2025 18:14:58 Asia/Manila] Successfully sent 3 notifications
+[15-Sep-2025 19:22:19 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:22:19 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:22:19 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:24:15 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:24:15 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:24:15 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:24:31 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:24:31 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:24:31 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:24:41 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:24:41 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:24:41 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:24:46 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:24:46 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:24:46 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:24:57 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:24:57 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:24:57 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:25:39 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:25:39 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:25:39 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:27:48 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:27:48 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:27:48 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:28:53 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:28:53 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:28:53 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:29:10 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:29:10 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:29:10 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:29:33 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:29:33 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:29:33 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:29:44 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 12
+[15-Sep-2025 19:29:44 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\login.php on line 13
+[15-Sep-2025 19:29:44 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\login.php on line 745
+[15-Sep-2025 19:30:45 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:30:45 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:30:45 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 19:30:52 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:30:52 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:30:52 Asia/Manila] Attempting password verification for email: superadmin@gmail.com
+[15-Sep-2025 19:30:52 Asia/Manila] Password verification successful for email: superadmin@gmail.com
+[15-Sep-2025 19:30:52 Asia/Manila] Redirecting user_id: 23, user_type: Super Admin
+[15-Sep-2025 19:30:52 Asia/Manila] Redirecting admin to /adminhome.php
+[15-Sep-2025 19:30:52 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 19:30:54 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 19:30:54 Asia/Manila] AJAX request received - dashboard_type: medical, time_period: daily, consultation_type: all, user_category: all
+[15-Sep-2025 19:30:54 Asia/Manila] Error in AJAX consultation count request: Unknown column 'consultation_type' in 'where clause'
+[15-Sep-2025 19:31:48 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:31:48 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:31:48 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 19:31:48 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:31:48 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:31:48 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 19:33:20 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:33:20 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:33:20 Asia/Manila] Attempting password verification for email: incomingfreshman@gmail.com
+[15-Sep-2025 19:33:20 Asia/Manila] Password verification successful for email: incomingfreshman@gmail.com
+[15-Sep-2025 19:33:20 Asia/Manila] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\wmsu\login.php on line 168
+[15-Sep-2025 19:33:20 Asia/Manila] Non-admin user_id: 117 not verified, setting error message
+[15-Sep-2025 19:33:20 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 19:33:43 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:33:43 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:33:43 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 19:33:43 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:33:43 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:33:43 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 19:33:53 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:33:53 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:33:53 Asia/Manila] Attempting password verification for email: seniorhigher@wmsu.edu.ph
+[15-Sep-2025 19:33:53 Asia/Manila] Password verification successful for email: seniorhigher@wmsu.edu.ph
+[15-Sep-2025 19:33:53 Asia/Manila] Redirecting user_id: 115, user_type: Senior High School
+[15-Sep-2025 19:33:53 Asia/Manila] Redirecting non-admin to /homepage
+[15-Sep-2025 19:33:53 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:33:53 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:33:53 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:33:53 Asia/Manila] Request method: GET
+[15-Sep-2025 19:33:53 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:33:54 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:33:54 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:33:54 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:33:54 Asia/Manila] Request method: GET
+[15-Sep-2025 19:33:54 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:34:01 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:34:01 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:34:01 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:34:01 Asia/Manila] Request method: GET
+[15-Sep-2025 19:34:01 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:34:07 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:34:07 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:34:07 Asia/Manila] Session validation for user_id: 115, user_type: Senior High School
+[15-Sep-2025 19:34:07 Asia/Manila] Non-admin user_id: 115 has not submitted profile, redirecting to /form.php
+[15-Sep-2025 19:34:07 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:34:07 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:34:07 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:34:07 Asia/Manila] Request method: GET
+[15-Sep-2025 19:34:07 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:34:07 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:34:07 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:34:07 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:34:07 Asia/Manila] Request method: GET
+[15-Sep-2025 19:34:07 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:34:07 Asia/Manila] === STARTING FORM PROCESSING ===
+[15-Sep-2025 19:34:07 Asia/Manila] Session ID: m028jphteih0tp8jp0b3nq4jtv
+[15-Sep-2025 19:34:07 Asia/Manila] User ID in session: 115
+[15-Sep-2025 19:34:07 Asia/Manila] Request method: GET
+[15-Sep-2025 19:34:07 Asia/Manila] POST data: Array
+(
+)
+
+[15-Sep-2025 19:35:07 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:35:07 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:35:07 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 19:35:11 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 19:35:11 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 19:35:11 Asia/Manila] Attempting password verification for email: ahmadaquino.2002@gmail.com
+[15-Sep-2025 19:35:11 Asia/Manila] Password verification successful for email: ahmadaquino.2002@gmail.com
+[15-Sep-2025 19:35:11 Asia/Manila] Redirecting user_id: 113, user_type: College
+[15-Sep-2025 19:35:11 Asia/Manila] Redirecting non-admin to /homepage
+[15-Sep-2025 21:09:25 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 21:09:25 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 21:09:25 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 21:09:25 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 21:09:25 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 21:09:25 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 21:09:37 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 21:09:37 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 21:09:37 Asia/Manila] Attempting password verification for email: parent@gmail.com
+[15-Sep-2025 21:09:37 Asia/Manila] Password verification successful for email: parent@gmail.com
+[15-Sep-2025 21:09:37 Asia/Manila] Redirecting user_id: 118, user_type: Parent
+[15-Sep-2025 21:09:37 Asia/Manila] Redirecting non-admin to /homepage
+[15-Sep-2025 22:15:55 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:15:55 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:15:55 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 22:16:25 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:16:25 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:16:25 Asia/Manila] Attempting password verification for email: ahmadaquino.2002@gmail.com
+[15-Sep-2025 22:16:25 Asia/Manila] Password verification successful for email: ahmadaquino.2002@gmail.com
+[15-Sep-2025 22:16:25 Asia/Manila] Redirecting user_id: 113, user_type: College
+[15-Sep-2025 22:16:25 Asia/Manila] Redirecting non-admin to /homepage
+[15-Sep-2025 22:17:06 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:17:06 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:17:06 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 22:17:06 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:17:06 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:17:06 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 22:17:14 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:17:14 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:17:14 Asia/Manila] Attempting password verification for email: parent@gmail.com
+[15-Sep-2025 22:17:14 Asia/Manila] Password verification successful for email: parent@gmail.com
+[15-Sep-2025 22:17:14 Asia/Manila] Redirecting user_id: 118, user_type: Parent
+[15-Sep-2025 22:17:14 Asia/Manila] Redirecting non-admin to /homepage
+[15-Sep-2025 22:18:11 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:18:11 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:18:11 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 22:18:11 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:18:11 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:18:11 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 22:18:24 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:18:24 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:18:24 Asia/Manila] Attempting password verification for email: superadmin@gmail.com
+[15-Sep-2025 22:18:24 Asia/Manila] Password verification successful for email: superadmin@gmail.com
+[15-Sep-2025 22:18:24 Asia/Manila] Redirecting user_id: 23, user_type: Super Admin
+[15-Sep-2025 22:18:24 Asia/Manila] Redirecting admin to /adminhome.php
+[15-Sep-2025 22:18:24 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 22:18:25 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 22:18:25 Asia/Manila] AJAX request received - dashboard_type: medical, time_period: daily, consultation_type: all, user_category: all
+[15-Sep-2025 22:18:25 Asia/Manila] Error in AJAX consultation count request: Unknown column 'consultation_type' in 'where clause'
+[15-Sep-2025 22:19:16 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 22:19:16 Asia/Manila] Admin user_id: 23, user_type: Super Admin accessed adminhome.php
+[15-Sep-2025 22:19:16 Asia/Manila] AJAX request received - dashboard_type: medical, time_period: daily, consultation_type: all, user_category: all
+[15-Sep-2025 22:19:16 Asia/Manila] Error in AJAX consultation count request: Unknown column 'consultation_type' in 'where clause'
+[15-Sep-2025 22:19:27 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:19:27 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:19:27 Asia/Manila] User logged out, redirecting to /login
+[15-Sep-2025 22:19:27 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:19:27 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:19:27 Asia/Manila] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in C:\xampp\htdocs\wmsu\login.php on line 745
+[15-Sep-2025 22:19:35 Asia/Manila] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 12
+[15-Sep-2025 22:19:35 Asia/Manila] PHP Warning:  session_set_cookie_params(): Session cookie parameters cannot be changed when a session is active in C:\xampp\htdocs\wmsu\login.php on line 13
+[15-Sep-2025 22:19:35 Asia/Manila] Attempting password verification for email: parent@gmail.com
+[15-Sep-2025 22:19:35 Asia/Manila] Password verification successful for email: parent@gmail.com
+[15-Sep-2025 22:19:35 Asia/Manila] Redirecting user_id: 118, user_type: Parent
+[15-Sep-2025 22:19:35 Asia/Manila] Redirecting non-admin to /homepage
