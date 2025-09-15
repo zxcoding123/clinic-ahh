@@ -814,23 +814,28 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     --------------------------------*/
                         $isStudent = in_array($user_type, ['Incoming Freshman', 'Senior High School', 'College', 'Highschool']);
 
+                        // If the logged-in user is a Parent and a child is selected, treat like a student for booking UI
+if ($user_type === 'Parent' && $isParent && isset($_GET['child_id']) && $_GET['child_id'] !== '') {
+    $isStudent = true;
+}
+
                         if ($isStudent) {
-                            // Students → only 1 per semester (any of the student roles)
-                            $sqlCheckAY = "
+    // Students → max 3 appointments per semester
+    $sqlCheckAY = "
         SELECT COUNT(*) AS ay_total
         FROM appointments 
         WHERE $id_column = '$target_id'
           AND academic_school_year = '$active_school_year'
           AND semester = '$active_sem'
-          AND grading_quarter = '$active_quarter'
           AND appointment_type = 'medical'
-                  AND status = 'Pending'
+          AND status IN ('Pending','Approved')
     ";
-                            $resCheckAY = $conn->query($sqlCheckAY);
-                            $rowCheckAY = $resCheckAY->fetch_assoc();
-                            $appointments_count = $rowCheckAY['ay_total'] ?? 0;
-                            $limitReached = $appointments_count >= 1;
-                        } elseif ($user_type === "Employee") {
+    $resCheckAY = $conn->query($sqlCheckAY);
+    $rowCheckAY = $resCheckAY->fetch_assoc();
+    $appointments_count = $rowCheckAY['ay_total'] ?? 0;
+    $limitReached = $appointments_count >= 3;
+}
+ elseif ($user_type === "Employee") {
                             // Employees → daily allowed, max 3 per week
                             $sqlWeek = "
         SELECT COUNT(*) AS week_total
@@ -860,8 +865,8 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
                     <small>
                         <?php if ($isStudent): ?>
-                            You have <?php echo $appointments_count; ?>/1 consultation
-                            <?php echo ($appointments_count < 1) ? "left" : "used"; ?> per semester
+                            You have <?php echo $appointments_count; ?>/3 consultations
+                    <?php echo ($appointments_count < 3) ? "left" : "used"; ?> this semester
                         <?php elseif ($user_type === "Employee"): ?>
                             You have <?php echo $appointments_count; ?>/3 consultations
                             <?php echo ($appointments_count < 3) ? "left" : "used"; ?> this week

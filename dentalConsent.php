@@ -2,6 +2,26 @@
 session_start();
 require 'config.php';
 
+// --- Prefill only the child's name if ?child_id=... is supplied by a logged-in parent ---
+$parentId = isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : 0;
+$childId  = isset($_GET['child_id']) ? (int)$_GET['child_id'] : 0;
+
+$childFullName = '';
+if ($parentId && $childId) {
+    // Ensure the child belongs to this parent
+    $sql = "SELECT first_name, last_name FROM children WHERE id = ? AND parent_id = ? LIMIT 1";
+    if ($stmt = $conn->prepare($sql)) {
+        $stmt->bind_param('ii', $childId, $parentId);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        if ($row = $res->fetch_assoc()) {
+            $childFullName = trim(($row['first_name'] ?? '') . ' ' . ($row['last_name'] ?? ''));
+        }
+        $stmt->close();
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -333,7 +353,9 @@ require 'config.php';
         <div class="consent-text">
             <p>
                 I, <span class="blank-field editable" id="parentName" contenteditable="true"></span>, parent/guardian of
-                <span class="blank-field editable" id="childName" contenteditable="true"></span>, residing from
+                <span class="blank-field editable" id="childName" contenteditable="true">
+                <?php echo htmlspecialchars($childFullName ?: ''); ?>
+                </span>, residing from
                 <span class="blank-field editable" id="residence" contenteditable="true"></span>, of legal age, hereby authorized the Staff of this Health Unit to perform
                 <span class="blank-field editable" id="procedure" contenteditable="true"></span> and other necessary procedures for the treatment of such dental condition.
             </p>
@@ -385,7 +407,8 @@ require 'config.php';
                 <div class="signature-box" style="margin-left: auto; margin-right: auto; max-width: 200px;">
                     <div class="signature-label"><small>Printed Name and Signature of Patient</small> </div>
                     <div class="printed-name">
-                        <span class="blank-field editable" id="patientPrintedName" contenteditable="true">Printed Name</span>
+                        <span class="blank-field editable" id="patientPrintedName" contenteditable="true">
+                    <?php echo htmlspecialchars($childFullName ?: 'Printed Name'); ?></span>
                     </div>
                     <canvas id="patientSignature" class="signature-pad"></canvas>
                     <div class="date-field">

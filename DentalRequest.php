@@ -177,6 +177,74 @@ if ($action === 'check_appointments') {
     exit();
 }
 
+if ($action === 'get_slots') {
+    ob_clean();
+    header('Content-Type: application/json');
+    try {
+        $start_date = $_GET['start_date'] ?? null;
+        $end_date   = $_GET['end_date'] ?? null;
+        $date       = $_GET['date'] ?? null;
+
+        $data = [];
+
+        if ($date) {
+            // Single date → return { "8:00 AM": 2, "9:00 AM": 0, ... }
+            $sql = "SELECT 
+                        DATE_FORMAT(appointment_time, '%l:%i %p') AS slot,
+                        COUNT(*) AS total
+                    FROM appointments
+                    WHERE appointment_date = ?
+                      AND appointment_type = 'dental'
+                      AND status <> 'Cancelled'
+                    GROUP BY slot";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $date);
+        } elseif ($start_date && $end_date) {
+            // Range → return { "YYYY-MM-DD": { "8:00 AM": 2, ... }, ... }
+            $sql = "SELECT 
+                        appointment_date,
+                        DATE_FORMAT(appointment_time, '%l:%i %p') AS slot,
+                        COUNT(*) AS total
+                    FROM appointments
+                    WHERE appointment_date BETWEEN ? AND ?
+                      AND appointment_type = 'dental'
+                      AND status IN ('Pending','Approved')
+                    GROUP BY appointment_date, slot";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("ss", $start_date, $end_date);
+        } else {
+            echo json_encode(['error' => 'Missing date or date range']);
+            exit;
+        }
+
+        $stmt->execute();
+        $res = $stmt->get_result();
+
+        if ($date) {
+            while ($row = $res->fetch_assoc()) {
+                $data[$row['slot']] = (int)$row['total'];
+            }
+        } else {
+            while ($row = $res->fetch_assoc()) {
+                $d = $row['appointment_date'];
+                if (!isset($data[$d])) $data[$d] = [];
+                $data[$d][$row['slot']] = (int)$row['total'];
+            }
+        }
+
+        $stmt->close();
+        echo json_encode($data);
+    } catch (Exception $e) {
+        error_log("Error in get_slots: " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to fetch slots']);
+    }
+    ob_end_flush();
+    exit();
+}
+
+
+
 if ($action === 'book_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
 
@@ -211,15 +279,6 @@ if ($action === 'book_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $isStudent = in_array($userType, ['Incoming Freshman', 'Senior High School', 'College', 'Highschool']);
 
 
-
-    // Convert appointment time to 24-hour format (HH:MM:SS)
-    $timeParsed = date_parse($appointmentTime);
-    if ($timeParsed['errors'] || !isset($timeParsed['hour']) || !isset($timeParsed['minute'])) {
-        error_log("Invalid time format: " . $appointmentTime);
-        echo json_encode(['success' => false, 'message' => 'Invalid time format']);
-        exit();
-    }
-    $appointmentTime = sprintf('%02d:%02d:00', $timeParsed['hour'], $timeParsed['minute']);
 
     // Validate user_id exists
     $query = "SELECT id FROM users WHERE id = ?";
@@ -358,6 +417,27 @@ if ($action === 'book_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $currentAcademicSchoolYear = null;
         $gradingQuarter = null;
         $semester = null;
+    }
+
+        // Check if slot is full
+    $MAX_PER_SLOT = 6;
+    $slotCheck = $conn->prepare("
+    SELECT COUNT(*) AS cnt 
+    FROM appointments
+    WHERE appointment_date = ?
+      AND appointment_time = ?
+      AND appointment_type = 'dental'
+      AND status <> 'Cancelled'
+");
+
+    $slotCheck->bind_param("ss", $appointmentDate, $appointmentTime);
+    $slotCheck->execute();
+    $slotRes = $slotCheck->get_result()->fetch_assoc();
+    $slotCheck->close();
+
+    if ($slotRes['cnt'] >= $MAX_PER_SLOT) {
+        echo json_encode(['success' => false, 'message' => 'This time slot is fully booked. Please choose another.']);
+        exit();
     }
 
 
@@ -813,10 +893,12 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
        2. Rule check per user type
     --------------------------------*/
                         $isStudent = in_array($user_type, ['Incoming Freshman', 'Senior High School', 'College', 'Highschool']);
+$isStudentOrParent = $isStudent || $isParent;
 
-                        if ($isStudent) {
-                            // Students → only 1 per semester (any of the student roles)
-                            $sqlCheckAY = "
+if ($isStudentOrParent) {
+    // Students (and Parents booking for a child) → only 1 per semester
+    // NOTE: $id_column/$target_id already point to child_id/child when Parent selected a child.
+    $sqlCheckAY = "
         SELECT COUNT(*) AS ay_total
         FROM appointments 
         WHERE $id_column = '$target_id'
@@ -824,31 +906,31 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
           AND semester = '$active_sem'
           AND grading_quarter = '$active_quarter'
           AND appointment_type = 'dental'
-                  AND status = 'Pending'
+          AND status IN ('Pending','Approved')
     ";
-                            $resCheckAY = $conn->query($sqlCheckAY);
-                            $rowCheckAY = $resCheckAY->fetch_assoc();
-                            $appointments_count = $rowCheckAY['ay_total'] ?? 0;
-                            $limitReached = $appointments_count >= 1;
-                        } elseif ($user_type === "Employee") {
-                            // Employees → daily allowed, max 3 per week
-                            $sqlWeek = "
+    $resCheckAY = $conn->query($sqlCheckAY);
+    $rowCheckAY = $resCheckAY->fetch_assoc();
+    $appointments_count = $rowCheckAY['ay_total'] ?? 0;
+    $limitReached = $appointments_count >= 1;
+} elseif ($user_type === "Employee") {
+    // Employees → daily allowed, max 3 per week
+    $sqlWeek = "
         SELECT COUNT(*) AS week_total
         FROM appointments
         WHERE $id_column = '$target_id'
           AND appointment_date BETWEEN '$week_start' AND '$week_end'
           AND appointment_type = 'dental'
-                  AND status = 'Pending'
+          AND status IN ('Pending','Approved')
     ";
-                            $resWeek = $conn->query($sqlWeek);
-                            $rowWeek = $resWeek->fetch_assoc();
-                            $appointments_count = $rowWeek['week_total'] ?? 0;
-                            $limitReached = $appointments_count >= 3;
-                        } else {
-                            // fallback for other roles
-                            $appointments_count = 0;
-                            $limitReached = false;
-                        }
+    $resWeek = $conn->query($sqlWeek);
+    $rowWeek = $resWeek->fetch_assoc();
+    $appointments_count = $rowWeek['week_total'] ?? 0;
+    $limitReached = $appointments_count >= 3;
+} else {
+    // fallback for other roles
+    $appointments_count = 0;
+    $limitReached = false;
+}
                     }
                     ?>
 
@@ -895,33 +977,34 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </form>
 
-                <?php if ($isStudent): ?>
-                    <?php if (!$limitReached): ?>
-                        <div class="timeslots-section">
-                            <h3 class="timeslots-title">Available Time Slots</h3>
-                            <div class="timeslots-container" id="timeSlots"></div>
-                        </div>
-                        <button type="button" class="confirm-button" id="confirm-btn">Confirm Appointment</button>
-                    <?php else: ?>
-                        <div class="alert alert-danger mt-3">
-                            You already have a dental appointment this semester
-                            (<?php echo $active_school_year; ?> - Semester <?php echo $active_sem; ?>, Quarter <?php echo $active_quarter; ?>).
-                        </div>
-                    <?php endif; ?>
-                <?php elseif ($user_type === "Employee"): ?>
-                    <?php if (!$limitReached): ?>
-                        <div class="timeslots-section">
-                            <h3 class="timeslots-title">Available Time Slots</h3>
-                            <div class="timeslots-container" id="timeSlots"></div>
-                        </div>
-                        <button type="button" class="confirm-button" id="confirm-btn">Confirm Appointment</button>
-                    <?php else: ?>
-                        <div class="alert alert-danger mt-3">
-                            You have already reached the maximum of 3 dental consultations for this week
-                            (<?php echo $week_start; ?> to <?php echo $week_end; ?>).
-                        </div>
-                    <?php endif; ?>
-                <?php endif; ?>
+                <?php if ($isStudent || $isParent): ?>
+    <?php if (!$limitReached): ?>
+        <div class="timeslots-section">
+            <h3 class="timeslots-title">Available Time Slots</h3>
+            <div class="timeslots-container" id="timeSlots"></div>
+        </div>
+        <button type="button" class="confirm-button" id="confirm-btn">Confirm Appointment</button>
+    <?php else: ?>
+        <div class="alert alert-danger mt-3">
+            You already have a dental appointment this semester
+            (<?php echo $active_school_year; ?> - Semester <?php echo $active_sem; ?>, Quarter <?php echo $active_quarter; ?>).
+        </div>
+    <?php endif; ?>
+<?php elseif ($user_type === "Employee"): ?>
+    <?php if (!$limitReached): ?>
+        <div class="timeslots-section">
+            <h3 class="timeslots-title">Available Time Slots</h3>
+            <div class="timeslots-container" id="timeSlots"></div>
+        </div>
+        <button type="button" class="confirm-button" id="confirm-btn">Confirm Appointment</button>
+    <?php else: ?>
+        <div class="alert alert-danger mt-3">
+            You have already reached the maximum of 3 dental consultations for this week
+            (<?php echo $week_start; ?> to <?php echo $week_end; ?>).
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
 
                 <button type="button" class="confirm-button" id="confirm-btn" style="visibility: hidden;">Confirm Appointment</button>
             </section>
@@ -1167,7 +1250,7 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Fetch slot counts for the entire month
                 const startDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-01`;
                 const endDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${daysInMonth}`;
-                const url = `get_slots.php?start_date=${startDate}&end_date=${endDate}`;
+                const url = `?action=get_slots&start_date=${startDate}&end_date=${endDate}`;
                 const response = await fetch(url);
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const slotCountsByDate = await response.json();
@@ -1251,7 +1334,7 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 const availableTimes = isSaturday ? ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM"] : ["8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"];
 
                 // Fetch slot counts for the selected date
-                const url = `get_slots.php?date=${selectedDateInput.value}`;
+                const url = `?action=get_slots&date=${encodeURIComponent(selectedDateInput.value)}`;
                 fetch(url)
                     .then(response => {
                         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -1307,6 +1390,16 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
+        function convertTo24Hour(time12h) {
+            // Expects e.g. "2:00 PM" or "11:00 AM"
+            const [time, modifier] = time12h.trim().split(' ');
+            let [hours, minutes] = time.split(':');
+
+            if (hours === '12') hours = '00';
+            if (modifier === 'PM') hours = String(parseInt(hours, 10) + 12);
+
+            return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}:00`;
+            }
 
 
         function confirmAppointment() {
@@ -1350,7 +1443,8 @@ if ($action === 'delete_appointment' && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 formData.append('reason', finalReason);
                 formData.append('appointment_date', selectedDate);
-                formData.append('appointment_time', selectedTime);
+                const dbTime = convertTo24Hour(selectedTime); // "HH:MM:00"
+                formData.append('appointment_time', dbTime);
                 formData.append('appointment_type', 'dental');
 
                 // Log form data for debugging
