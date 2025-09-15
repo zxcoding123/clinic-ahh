@@ -1,0 +1,535 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+/* Wrapper */
+#app {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #8B0000;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Logo */
+.logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar Buttons */
+.btn-crimson {
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-crimson:hover {
+    background: #fbfbfb;
+    color: #8B0000;
+}
+
+.active {
+    background-color: #4f1515 !important;
+    color: white !important;
+}
+
+.quick-link {
+    margin-top: auto;
+    margin-bottom: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Health Services Section */
+.health-services {
+    margin-bottom: 2.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    transition: margin-left 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Content Dim Effect */
+.content-dim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 800;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.main-content.sidebar-open .content-dim {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 200px;
+    }
+     
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    /* Remove the overlay styles from previous implementation */
+    .overlay {
+        display: none;
+    }
+}
+
+/* Title Styling */
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #8B0000;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid #8B0000;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Sections */
+.main-content section {
+    width: 100%;
+    padding: 60px 10%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-content h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 10px;
+    display: inline-block;
+    color: #8B0000;
+}
+
+.main-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #333;
+}
+
+/* About Section */
+.about {
+    background: url('../images/12.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.about > * {
+    position: relative;
+    z-index: 2;
+}
+
+.about h2 {
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.about p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Staff Section */
+.staff {
+    background: url('../images/healthservices.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.staff::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.staff > * {
+    position: relative;
+    z-index: 2;
+}
+
+.staff h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    border-bottom: 3px solid #ffffff;
+    display: inline-block;
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.staff ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.staff ul li {
+    font-size: 1.1rem;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.staff ul li img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white; 
+    margin-bottom: 12px;
+}
+
+/* Core Values Section */
+.core-values {
+    background: url('../images/bg.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.core-values::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(138, 2, 2, 0.5);
+    z-index: 0;
+}
+
+.core-values > * {
+    position: relative;
+    z-index: 2;
+}
+
+.core-values h2 {
+    font-size: 2.6rem;
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.core-values ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 15px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.core-values ul li {
+    font-size: 1.3rem;
+    padding: 18px 20px;
+    color: white;
+    text-align: left;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.15);
+    border-left: 6px solid rgba(255, 255, 255, 0.5);
+    transition: background 0.3s ease-in-out, border-left 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.2rem;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.core-values ul li:hover {
+    background: rgba(110, 5, 5, 0.8);
+    border-left: 7px solid #ffffff;
+}
+
+/* Vision & Mission Section */
+.vision-mission {
+    position: relative;
+    background: url('../images/staffs.jpg') no-repeat center center/cover;
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.vision-mission::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.vision-mission-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.vision-mission-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    border-left: 6px solid #FFFFFF;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 3;
+}
+
+.vision-mission-card h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    border-bottom: 3px solid white;
+    padding-bottom: 8px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.vision-mission-card p {
+    font-size: 1.2rem;
+    color: white !important;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+    text-justify: inter-word;
+    position: relative;
+    z-index: 4;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.vision-mission-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 200px;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .about {
+        height: auto;
+        padding: 60px 10px;
+        background-attachment: scroll;
+    }
+    
+    .main-content section {
+        padding: 40px 5%;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .main-content h2,
+    .about h2,
+    .staff h2,
+    .core-values h2 {
+        font-size: 2rem;
+    }
+    
+    .main-content p,
+    .about p,
+    .staff p,
+    .core-values ul li,
+    .vision-mission-card p {
+        font-size: 1rem;
+    }
+    
+    .staff ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .staff ul li img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .core-values ul {
+        grid-template-columns: 1fr;
+    }
+    
+    .vision-mission-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .vision-mission-card {
+        text-align: center;
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-content h2,
+    .about h2,
+    .staff h2,
+    .core-values h2 {
+        font-size: 1.8rem;
+    }
+    
+    .staff h3 {
+        font-size: 1.5rem;
+    }
+}

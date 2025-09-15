@@ -1,0 +1,676 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+ 
+#app {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+#dental-appointments-btn {
+    background-color: #530b0b !important;
+    color: white !important;
+}
+
+/* Burger Button */
+.burger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 20px;
+    z-index: 1100; /* Above sidebar */
+    cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #8B0000;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Below burger button, above main content */
+}
+
+/* Sidebar Active State for Mobile */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Logo */
+.logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar Buttons */
+.btn-crimson {
+    background: none;
+    color: white;
+    border: none;
+    padding: 12px 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-crimson:hover {
+    background: #fbfbfb;
+    color: #8B0000;
+}
+
+/* Content Management Dropdown Button */
+.btn-crimson.dropdown-toggle {
+    background: none;
+    color: white;
+    border: none;
+    padding: 12px 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 16px;
+}
+
+.btn-crimson.dropdown-toggle:hover,
+.btn-crimson.dropdown-toggle.show {
+    background: #fbfbfb;
+    color: #8B0000;
+}
+
+.btn-crimson.dropdown-toggle:focus,
+.btn-crimson.dropdown-toggle:active {
+    background: #fbfbfb;
+    color: #8B0000;
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-toggle::after {
+    margin-left: 10px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #8B0000;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1100; /* Above sidebar */
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #8B0000;
+    color: white;
+}
+
+/* Health Services Section */
+.health-services {
+    margin-bottom: 2.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-left: 250px; /* Match sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #212529;
+    overflow-y: auto;
+}
+
+.main-content.sidebar-active {
+    margin-left: 70px;
+}
+
+/* Container Styles */
+.container-fluid {
+    max-width: 1900px;
+    margin: 0 auto;
+}
+
+/* Heading Styles */
+.small-heading {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #484545;
+    text-transform: uppercase;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Tab Navigation */
+.nav-tabs {
+    border-bottom: 2px solid #8B0000;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-bottom: none;
+    margin-right: 5px;
+    padding: 12px 20px;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #f8f9fa #f8f9fa #8B0000;
+    color: #8B0000;
+}
+
+.nav-tabs .nav-link.active {
+    color: #8B0000;
+    background-color: white;
+    border-color: #8B0000 #8B0000 white;
+}
+
+.tab-content {
+    padding: 20px 0;
+}
+
+/* Table Styles */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #8B0000;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+ 
+}
+
+.action-buttons.show-actions {
+    opacity: 1;
+}
+
+/* Button Styles */
+.btn-sm {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+    color: white;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Form Controls */
+.form-check-input {
+    width: 16px;
+    height: 16px;
+    margin-top: 0.25rem;
+}
+
+.form-check-input:checked {
+    background-color: #8B0000;
+    border-color: #8B0000;
+}
+
+.form-select, .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.form-select:focus, .form-control:focus {
+    border-color: #8B0000;
+    box-shadow: 0 0 0 0.2rem rgba(139, 0, 0, 0.25);
+    outline: none;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1060;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+}
+
+.modal-title {
+    margin: 0;
+    font-weight: bold;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    color: #dc3545;
+}
+
+/* Badge Styles */
+.badge {
+    padding: 0.5em 0.75em;
+    font-size: 0.75em;
+    font-weight: bold;
+}
+
+/* Slip Container Styles */
+.slip-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.university-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.health-center {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #8B0000;
+    text-transform: uppercase;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="number"],
+.form-field input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.request-options {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.request-options p {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #495057;
+}
+
+.request-option {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.request-option:last-child {
+    margin-bottom: 0;
+}
+
+.request-option input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.request-option label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.option-details {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.option-details label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+.signature-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.signature-label {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+.signature-canvas {
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    background-color: white;
+    cursor: crosshair;
+}
+
+.action-buttons {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .slip-container, .slip-container * {
+        visibility: visible;
+    }
+    
+    .slip-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 20px;
+        background-color: white;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    
+    .no-print {
+        display: none !important;
+    }
+    
+    .request-options {
+        background-color: white !important;
+        border: 1px solid #000 !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .burger-btn {
+        display: block;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .small-heading {
+        font-size: 1.5rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .table th, .table td {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 10px;
+    }
+    
+    .small-heading {
+        font-size: 1.3rem;
+    }
+    
+    .form-select, .form-control {
+        font-size: 0.9rem;
+    }
+    
+    .btn-sm {
+        padding: 3px 6px;
+        font-size: 0.75rem;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-footer .btn { 
+        width: 100%;
+    }
+    
+    .burger-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-crimson.dropdown-toggle {
+        font-size: 14px;
+    }
+    
+    .dropdown-menu {
+        font-size: 12px;
+    }
+    
+    .dropdown-item {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-crimson.dropdown-toggle {
+        font-size: 12px;
+    }
+}

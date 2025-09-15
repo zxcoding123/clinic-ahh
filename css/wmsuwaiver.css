@@ -1,0 +1,219 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    color: #000000;
+    line-height: 1.4;
+}
+
+/* Page layout to mimic A4 size with increased height */
+.page {
+    width: 8.27in; /* A4 width */
+    min-height: 12.5in; /* Increased height to fit content */
+    margin: 0.5in auto;
+    padding: 0.75in;
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    page-break-after: always;
+    position: relative;
+}
+
+/* Header layout with logos on left, text in center, ISO on right */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5in;
+}
+
+.logos {
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 0.8in;
+    height: auto;
+    margin-right: 0.1in;
+    vertical-align: top;
+}
+
+.header-text {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header-text p {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 2pt;
+}
+
+.header-text p:last-child {
+    font-weight: normal;
+}
+
+.header-image {
+    text-align: right;
+}
+
+.iso-logo {
+    width: 1in;
+    height: auto;
+}
+
+/* Content styling */
+.content {
+    text-align: justify;
+}
+
+.content h1 {
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 12pt;
+}
+
+.content p {
+    margin-bottom: 8pt;
+}
+
+.content ul, .content ol {
+    margin-left: 0.5in;
+    margin-bottom: 8pt;
+    padding-left: 0;
+}
+
+.content ul li, .content ol li {
+    margin-bottom: 4pt;
+    list-style-position: outside;
+}
+
+/* Signature section */
+.signature {
+    margin-top: 20pt;
+}
+
+.signature-line {
+    margin-bottom: 12pt;
+}
+
+.signature-line .line {
+    border-bottom: 1px solid #000000;
+    width: 3in;
+    margin-bottom: 2pt;
+}
+
+.signature-wrapper {
+    position: relative;
+    width: 3in;
+    margin-bottom: 2pt;
+}
+
+.signature-canvas {
+    border-bottom: 1px solid #000000;
+    width: 3in;
+    height: 40pt;
+    display: block;
+}
+
+.clear-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2pt 8pt;
+    font-size: 9pt;
+    cursor: pointer;
+    border: 1px solid #000000;
+    background-color: #f0f0f0;
+}
+
+/* Buttons styling */
+.buttons {
+    text-align: center;
+    margin-top: 20pt;
+}
+
+.print-button {
+    padding: 8pt 16pt;
+    font-size: 11pt;
+    margin: 0 10pt;
+    cursor: pointer;
+    border: 1px solid #000000;
+    background-color: #f0f0f0;
+}
+
+.submit-button {
+    padding: 10pt 20pt;
+    font-size: 11pt;
+    margin: 0 10pt;
+    cursor: pointer;
+    border: none;
+    border-radius: 4pt;
+    background-color: #008CBA;
+    color: white;
+    min-width: 120pt;
+    z-index: 10;
+    position: relative;
+}
+
+.submit-button:hover {
+    background-color: #007399;
+}
+
+.submit-button:active {
+    background-color: #005f73;
+}
+
+@media (max-width: 768px) {
+    .submit-button {
+        padding: 12pt 24pt;
+        font-size: 12pt;
+        min-width: 140pt;
+    }
+}
+
+/* Footer styling */
+.footer {
+    position: absolute;
+    bottom: 0.75in;
+    left: 0.75in;
+    right: 0.75in;
+    text-align: left;
+}
+
+.footer-text p {
+    font-size: 9pt;
+    margin-bottom: 2pt;
+}
+
+/* Print-specific styles */
+@media print {
+    .page {
+        margin: 0;
+        box-shadow: none;
+        min-height: 11.69in;
+    }
+
+    .print-button, .submit-button, .clear-button, .buttons {
+        display: none;
+    }
+
+    .signature-line .line {
+        border-bottom: none;
+    }
+
+    .signature-canvas {
+        border-bottom: none;
+    }
+
+    canvas {
+        display: block;
+    }
+}

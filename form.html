@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Record Template</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: white;
+            margin: 60px;
+            padding: 20px;
+
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            height: 50px;
+            vertical-align: middle;
+        }
+
+        .header h1 {
+            margin: 5px 0;
+            font-size: 20px;
+
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 12px;
+
+        }
+
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border: 1px solid black;
+        }
+
+        .main-table th {
+            background-color: white;
+            color: white;
+            padding: 10px;
+            text-align: left;
+
+        }
+
+        .main-table td {
+
+            padding: 8px;
+        }
+
+        .section-header {
+            background-color: #DAA520;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .sub-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sub-table td {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .checkbox-list {
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 10px;
+            color: #8B4513;
+            margin-top: 20px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .submit-btn {
+                display: none;
+            }
+
+            table,
+            th,
+            td {
+                border: 1px solid black !important;
+                border-collapse: collapse !important;
+            }
+
+            .print-btn {
+                visibility: hidden;
+            }
+
+            .back-btn {
+                visibility: hidden;
+            }
+        }
+
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #8B0000;
+            /* dark red */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+        }
+
+        .print-btn:hover {
+            background-color: #a40000;
+            /* lighter red on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="print-btn" onclick="window.print()">Print</button>
+
+    <style>
+
+    </style>
+
+    <div id="printableArea">
+        <a href="" class="back-btn">Go Back</a>
+        <br> <br>
+        <div class="header"
+            style="display: flex; align-items: center; justify-content: center; gap: 20px; text-align: left;">
+            <img src="images/wmsu_logo.png" alt="Logo 1" style="height: 60px;">
+            <img src="images/clinic.png" alt="Logo 1" style="height: 60px;">
+            <div style="flex: 1;">
+                <h1 style="margin: 0; color:#8B0000">WESTERN MINDANAO STATE UNIVERSITY</h1>
+                <p style="margin: 2px 0; font-weight: bold;">ZAMBOANGA CITY</p>
+                <p style="margin: 2px 0; font-weight: bold;">UNIVERSITY HEALTH SERVICES CENTER</p>
+                <p style="margin: 2px 0; font-weight: bold;">Tel. no (062) 991-6736 / Email: <a href="#">
+                        healthservices@wmsu.edu.ph</a></p>
+
+            </div>
+            <img src="images/ISO.png" alt="Logo 2" style="height: 60px;">
+        </div>
+        <table class="main-table">
+            <tr>
+                <td colspan="4">
+                    <div style="background-color: #8B0000; color: white; padding: 10px; text-align: center;">
+                        <b>PATIENT HEALTH PROFILE & CONSULTATIONS RECORD</b>
+                    </div>
+                    <p style="text-align: center;">(Electronic or Paper-based Input)</p>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td style="text-align: center; height:200px; width: 200px;" rowspan="2">
+                    <i>(Picture of Patient)</i>
+                </td>
+                <td colspan="3">
+                    <b>Name:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <div style="display: flex; justify-content: space-between; text-align: center; margin-top: 10px;">
+                        <div style="flex: 1;"><i>(Surname)</i></div>
+                        <div style="flex: 1;"><i>(First Name)</i></div>
+                        <div style="flex: 1;"><i>(Middle Name)</i></div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Age:</b></td>
+                <td><b>Sex:</b></td>
+                <td><b>Course:</b></td>
+                <td><b>Year Level:</b></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>Birthday <i>(MM-DD-YY):</i></b>
+                </td>
+                <td colspan="2">
+                    <b>Religion:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>Nationality:</b>
+                </td>
+                <td colspan="2">
+                    <b>Civil Status:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>Email Address:</b>
+                </td>
+                <td colspan="2">
+                    <b>Contact Number:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="4"><b>City Address: </b><br><br></td>
+            </tr>
+
+            <tr>
+                <td colspan="4"><b>Provincial Address (if applicable): </b><br><br></td>
+            </tr>
+
+            <tr>
+                <td style="text-align: center; height:200px; " rowspan="3">
+                    <b>Emergency Contact Person</b>
+                    <br>within<br> Zamboanga City
+                </td>
+
+                <td colspan="3">
+                    <b>Name:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <b>Contact Number:</b>
+                </td>
+                <td colspan="2">
+                    <b>Relationship:</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>City Address: </b><br><br>
+                </td>
+            </tr>
+
+            <style>
+                .checkbox-line {
+                    display: flex;
+                    align-items: center;
+                    margin: 4px 0;
+                    font-family: Arial, sans-serif;
+                }
+
+                .checkbox-fake {
+                    width: 16px;
+                    height: 16px;
+                    border: 2px solid #000;
+                    display: inline-block;
+                    margin-right: 8px;
+                    position: relative;
+                }
+
+                /* default: empty box */
+                .checkbox-fake::after {
+                    content: "✔";
+                    font-size: 14px;
+                    position: absolute;
+                    top: -3px;
+                    left: 1px;
+                    color: transparent;
+                    /* hidden unless chosen */
+                }
+
+                /* chosen = black check */
+                .checkbox-fake.checked::after {
+                    color: black;
+                }
+            </style>
+
+            <tr>
+                <td style="text-align: center;"><b>Comorbid Illnesses</b></td>
+                <td colspan="3">
+                    Which of these conditions do you currently have?
+                    <br> <br>
+                    <div style="margin-left: 20px; margin-top: 5px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake checked"></span>
+                            Bronchial Asthma ("Hika")
+                        </div>
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Food Allergies <span>(Specify food: __________________________________)</span>
+                        </div>
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Hyperthyroidism
+                        </div>
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Hypothyroidism/Goiter
+                        </div>
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake checked"></span>
+                            Anemia
+                        </div>
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Psychiatric Illness
+                        </div>
+                        <div style="margin-left: 50px; margin-top: 10px;">
+                            <div class="checkbox-line">
+                                <span class="checkbox-fake"></span>
+                                Major Depressive Disorder
+                            </div>
+                        </div>
+                        <div style="margin-left: 50px;"">
+                <div class=" checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Bipolar Disorder
+                        </div>
+                    </div>
+                    <div style="margin-left: 50px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Generalized Anxiety Disorder
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 50px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Panic Disorder
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 50px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Postraumatic Stress Disorder
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 50px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Schizophrenia
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 50px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Other: __________________________________
+                        </div>
+                    </div>
+
+                    <div class="checkbox-line" style="margin-top: 20px;">
+                        <span class="checkbox-fake"></span>
+                        Migraine &nbsp; <i>(recurrent headaches)</i>
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Epilepsy/Seizures
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Gastroesophageal Reflux Disease (GERD)
+
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Irritable Bowel Syndrome
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Hypertension &nbsp; <i>(elevated blood pressure)</i>
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Diabetus mellitus &nbsp; <i>(elevated blood sugar)</i>
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Dyslipidemia &nbsp; <i>(elevated cholesterol levels)</i>
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Arthritis &nbsp; <i>(joint pains)</i>
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Systemic Lupus Erythematosus (SLE)
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Polycystic Ovary Syndrome (PCOS)
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Cancer &nbsp; (Specify: __________________________________)
+                    </div>
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Other: __________________________________
+                    </div>
+
+    </div>
+    </td>
+    </tr>
+
+    <tr>
+        <td rowspan="6" style="text-align: center;"><b>Maintenance Medications</b></td>
+        <td colspan="2" style="text-align: center;"><b>Generic Name of Drug</b></td>
+        <td colspan="2" style="text-align: center;"><b>Dose and Frequency</b></td>
+    </tr>
+
+    <tr>
+        <td colspan="2">1.</td>
+        <td colspan="2">1.</td>
+    </tr>
+
+    <tr>
+        <td colspan="2">2.</td>
+        <td colspan="2">2.</td>
+    </tr>
+
+    <tr>
+        <td colspan="2">3.</td>
+        <td colspan="2">3.</td>
+    </tr>
+
+    <tr>
+        <td colspan="2">4.</td>
+        <td colspan="2">4.</td>
+    </tr>
+
+    <tr>
+        <td colspan="2">5.</td>
+        <td colspan="2">5.</td>
+    </tr>
+
+    <tr>
+        <td colspan="1" style="text-align:center"><b>COVID-19 <br> Vaccination</b></td>
+        <td colspan="3">
+            <div class="container" style="margin: 30px;">
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Fully vaccinated &nbsp; <i>(Primary series with or without
+                        booster shot/s)</i>
+                </div>
+
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Partially vaccinated &nbsp; <i>(Incomplete primary
+                        series)</i>
+                </div>
+
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Not vaccinated
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center;"><b>Menstrual & Obstetric History </b><br> <i>(for females only)</i></td>
+        <td colspan="2">
+            <br>
+            Age when menstruation began: ____________
+            <div class="container" style="margin-left: 25px; margin-top: 10px;">
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Regular (monthly)
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Irregular
+                </div>
+            </div>
+            <br>
+            Number of pregnancies: _______
+            <br>
+            Number of live children: _______
+        </td>
+        <td colspan="2">
+            <br>
+            Menstrual Symptoms:
+            <div class="container" style="margin-left: 25px; margin-top: 10px;">
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Dysmenorrhea (cramps)
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Migraine
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Loss of consciousness
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Other: ______________
+                </div>
+            </div>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td rowspan="4" style="text-align: center;"><b>Past Medical & Surgery History</b></td>
+        <td colspan="3"><i>Which of these conditions have you had in the past?</i></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Varicella (Chicken Pox)
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Dengue
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Tuberculosis
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Pneumonia
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Urinary Tract Infection
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Appendicitis
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Cholecystitis
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Other: ______________
+            </div>
+        </td>
+        <td colspan="2">
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Measles
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Typhoid Fever
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Amoebiasis
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Nephro/Urolithiasis <small><i> (kidney stones)</i></small>
+            </div>
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span>Injury
+            </div>
+            <div class="container" style="margin: 15px">
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Appendicitis
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Cholecystitis
+                </div>
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>Other: ______________
+                </div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="3"><i>Have you ever been admitted to the hospital and/or underwent a surgery?</i></td>
+
+    </tr>
+
+    <tr>
+        <td>
+            <div class="container" style="display: flex; justify-content: center; align-items: center;">
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>No
+                </div>
+            </div>
+        </td>
+        <td colspan="2">
+            <div class="checkbox-line">
+                <span class="checkbox-fake"></span> Yes
+            </div>
+            <br>
+            Year: ______________________ &nbsp; Reason/s:
+            ____________________________________________________________
+            <br> <br>
+            Year: ______________________ &nbsp; Reason/s:
+            ____________________________________________________________
+            <br> <br>
+            Year: ______________________ &nbsp; Reason/s:
+            ____________________________________________________________
+            <br> <br>
+            Year: ______________________ &nbsp; Reason/s:
+            ____________________________________________________________
+        </td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center;"> <b>Family <br> Medical <br> History</b></td>
+        <td colspan="3">
+            Indicate the known health condtion/s of your immediate family members.
+            <br>
+            <br>
+            <div style="margin-left: 20px; margin-top: 5px;">
+                <div style="margin-left: 20px; margin-top: 5px;">
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Hypertension &nbsp; <i>(elevated blood pressure)</i>
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Coronary Artery Disease
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Congestive Heart Failure
+                    </div>
+
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Diabetus mellitus &nbsp; <i>(elevated blood sugar)</i>
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Chronic Kidney Disease &nbsp; (with/withour regular Hemodialysis)
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Dyslipidemia &nbsp; (elevated cholesterol levels)
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Arthritis &nbsp; <i>(joint pains)</i>
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Cancer &nbsp; (Specify: __________________________________)
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake checked"></span>
+                        Bronchial Asthma ("Hika")
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake checked"></span>
+                        Chronic Obstructive Pulmonary Disease (COPD)
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Food Allergies <span>(Specify food: __________________________________)</span>
+                    </div>
+
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Allergic Rhinitis
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Hyperthyroidism
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Hypothyroidism/Goiter
+                    </div>
+
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Psychiatric Illness
+                    </div>
+                    <div style="margin-left: 50px; margin-top: 10px;">
+                        <div class="checkbox-line">
+                            <span class="checkbox-fake"></span>
+                            Major Depressive Disorder
+                        </div>
+                    </div>
+                    <div style="margin-left: 50px;"">
+                <div class=" checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Bipolar Disorder
+                    </div>
+                </div>
+                <div style="margin-left: 50px;">
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Generalized Anxiety Disorder
+                    </div>
+                </div>
+
+                <div style="margin-left: 50px;">
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Panic Disorder
+                    </div>
+                </div>
+
+                <div style="margin-left: 50px;">
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Postraumatic Stress Disorder
+                    </div>
+                </div>
+
+                <div style="margin-left: 50px;">
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Schizophrenia
+                    </div>
+                </div>
+
+                <div style="margin-left: 50px;">
+                    <div class="checkbox-line">
+                        <span class="checkbox-fake"></span>
+                        Other: __________________________________
+                    </div>
+                </div>
+
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>
+                    Epilepsy/Seizures
+                </div>
+
+                <div class="checkbox-line">
+                    <span class="checkbox-fake"></span>
+                    Other: __________________________________
+                </div>
+            </div>
+            </div>
+        </td>
+    </tr>
+    </table>
+
+    <table class="main-table" style="margin-top: 25px; border-collapse: collapse; width: 100%;" border="1">
+        <tr>
+            <td colspan="7" style="background-color: #8B0000; color: white; padding: 10px; text-align: center;">
+                <b>CONSULTATIONS RECORD</b>
+            </td>
+        </tr>
+        <tr style="text-align: center; font-weight: bold;">
+            <td style="width: 10%; padding:10px;">Date <br> (mm-dd-yy)</td>
+            <td style="width: 20%;">Signs & Symptoms</td>
+            <td style="width: 15%;">Vital Signs</td>
+            <td style="width: 15%;">Test Results</td>
+            <td style="width: 15%;">Diagnosis</td>
+            <td style="width: 20%;">Management</td>
+            <td style="width: 20%;">Nurse/Physician In-charge</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <p style="border-bottom: 1px solid black; width: 100%;">
+                    HR: <br> <br>
+                </p>
+
+                <p style="border-bottom: 1px solid black; width: 100%;">
+                    RR: <br> <br>
+                </p>
+
+                <p style="border-bottom: 1px solid black; width: 100%;">
+                    Temp: <br> <br>
+                </p>
+
+                <p style="border-bottom: 1px solid black; width: 100%;">
+                    O2 Sat: <br> <br>
+                </p>
+
+                <p style="width: 100%;">
+                    BP: <br>
+                </p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+    <br> <br>
+    <center>
+        <h3 style="color: darkred"><i>(For use by the University Health Services Center, please do not fill beyond this
+                point.)</i></h3>
+    </center>
+
+    <br>
+
+    <table class="main-table">
+        <tr>
+            <td><b>Height (cm):</b></td>
+            <td><b>Weight (kg):</b></td>
+            <td><b>BMI:</b></td>
+        </tr>
+        <tr>
+            <td colspan="3"><br><b>Physical Examination: </b></br>
+                <div style="height:500px;"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <p>
+                    <b>
+                        Pre-Enrollment Health Assessment:
+                    </b>
+                </p>
+                <p>
+                    Chest X-ray Results: __________________
+                </p>
+                <p>
+                    CBC Results: __________________
+                </p>
+                <p>
+                    Chest X-ray Results: __________________ <span style="margin-left: 100px;">Hepatitis B Screening
+                        Results (Antigen Test): __________________</span>
+                </p>
+                <p>
+                    Urianalysis Results: __________________
+                </p>
+                <p>
+                    Others: __________________
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    </div>
+
+</body>
+
+</html>

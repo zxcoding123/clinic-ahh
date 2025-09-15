@@ -1,0 +1,16 @@
+[31-May-2025 19:53:24 Asia/Manila] PHP Parse error:  syntax error, unexpected token "{", expecting ")" in /home/u218045265/domains/wmsuhealthservices.site/public_html/vendor/tecnickcom/tcpdf/tcpdf.php on line 16900
+[31-May-2025 19:53:25 Asia/Manila] PHP Parse error:  syntax error, unexpected token "{", expecting ")" in /home/u218045265/domains/wmsuhealthservices.site/public_html/vendor/tecnickcom/tcpdf/tcpdf.php on line 16900
+[31-May-2025 19:59:34 Asia/Manila] test_tcpdf.php: vendor/tecnickcom/tcpdf/tcpdf.php not found
+[31-May-2025 20:11:32 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:11:42 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:12:09 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:17:40 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:17:48 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:17:54 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:18:02 Asia/Manila] test_tcpdf.php: PDF generated successfully
+[31-May-2025 20:19:21 Asia/Manila] send_certificate.php: Invalid request method: GET
+[31-May-2025 20:20:30 Asia/Manila] send_certificate.php: Invalid request method: GET
+[31-May-2025 20:20:38 Asia/Manila] send_certificate.php: Invalid request method: GET
+[31-May-2025 20:21:16 Asia/Manila] send_certificate.php: Invalid request method: GET
+[31-May-2025 20:26:02 Asia/Manila] send_certificate.php: Invalid request method: GET
+[31-May-2025 20:26:28 Asia/Manila] send_certificate.php: Invalid request method: GET

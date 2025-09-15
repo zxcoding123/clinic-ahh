@@ -1,0 +1,562 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar (Unchanged) */
+.sidebar {
+    width: 250px;
+    background: #8B0000; /* Crimson red for original color */
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button (Unchanged) */
+.sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #8B0000; /* Match sidebar */
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Logo (Unchanged) */
+.logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar Buttons (Unchanged) */
+.btn-crimson {
+    background: none;
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s;
+}
+
+.btn-crimson:hover {
+   background: #fbfbfb;
+    color: #8B0000;
+}
+
+.btn-crimson.active {
+    background: #700000; /* Darker red for active state */
+    color: #fff; /* White text when clicked */
+}
+
+/* Disabled Button (Unchanged) */
+.btn-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Quick Link (Unchanged) */
+.quick-link {
+    margin-top: auto;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Health Services Section (Unchanged) */
+.health-services {
+    margin-bottom: 2.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: #fff;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Content Dim Effect */
+.content-dim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 800;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.main-content.sidebar-open .content-dim {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Profile Container */
+.profile-container {
+    background: #fff !important; /* Force white background to override dark red */
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    color: #222 !important; /* Dark text for all child elements */
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #222;
+}
+
+.profile-title {
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #222; /* Darker for visibility */
+}
+
+/* Settings Button */
+.settings-btn {
+    background: #005566; /* Teal instead of crimson */
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.settings-btn:hover {
+    background: #007377; /* Lighter teal for hover */
+    transform: translateY(-1px);
+}
+
+/* Tabs */
+.nav-tabs {
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 8px;
+}
+
+.nav-tabs .nav-link {
+    color: #0000FF; /* Blue for unclicked tabs */
+    font-weight: 400;
+    padding: 12px 20px;
+    border: none;
+    margin: 0;
+    text-transform: capitalize;
+    background: #f9f9f9;
+    border-radius: 6px 6px 0 0;
+    transition: background 0.3s, color 0.3s, transform 0.1s;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.nav-tabs .nav-link:hover {
+    background: #f1f1f1;
+    color: #0000FF;
+    transform: translateY(-2px);
+}
+
+.nav-tabs .nav-link.active {
+    background: #fff;
+    color: #222; /* Darker for active tab */
+    font-weight: 400;
+    border-bottom: 3px solid #222;
+    transform: translateY(0);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+    padding: 0;
+}
+
+/* Tab Sections */
+.patient-section,
+.consultations-section {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.patient-section h4,
+.consultations-section h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #222; /* Darker for visibility */
+}
+
+/* Profile Info (Account Info Tab) */
+.profile-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    background: #fff !important; /* Force white background */
+    color: #222 !important; /* Force dark text */
+}
+
+.info-item {
+    margin-bottom: 15px;
+    background: #fff !important; /* Ensure no dark red */
+}
+
+.info-label {
+    font-weight: 600;
+    color: #222 !important; /* Force dark text for labels */
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.info-value {
+    padding: 12px;
+    background: #f9f9f9 !important; /* Light gray background, override dark red */
+    border: 1px solid #e0e0e0;
+    color: #222 !important; /* Force dark text for values */
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+/* Tables */
+.table-responsive {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    vertical-align: middle;
+    border: 1px solid #e0e0e0;
+}
+
+.table th {
+    background: #f9f9f9;
+    font-weight: 600;
+    color: #222; /* Darker for visibility */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.table td {
+    color: #222; /* Darker for visibility, changed from #555 */
+    font-size: 0.95rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background: #fafafa;
+}
+
+/* Buttons in Tables */
+.btn-sm {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary {
+    background: #005566; /* Teal instead of crimson */
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #007377; /* Lighter teal for hover */
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    border: none;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+/* Document View Modal */
+.document-view {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+}
+
+.document-view h3 {
+    text-align: center;
+    color: #222; /* Darker for visibility */
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.document-view h5 {
+    color: #222; /* Darker for visibility */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.document-view .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+.document-view .info-label {
+    font-weight: 600;
+    width: 40%;
+    color: #222; /* Darker for visibility */
+    font-size: 0.95rem;
+}
+
+.document-view .info-value {
+    width: 60%;
+    text-align: left;
+    color: #222; /* Darker for visibility, changed from #555 */
+    font-size: 0.95rem;
+}
+
+/* Modal Styling */
+.modal-dialog {
+    max-width: 500px;
+}
+
+.modal-content {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background: #005566; /* Teal instead of crimson */
+    color: #fff;
+    border-bottom: none;
+    padding: 15px 20px;
+}
+
+.modal-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+.modal-body {
+    font-size: 1.1rem;
+    color: #222; /* Darker for visibility */
+    line-height: 1.6;
+    padding: 20px;
+    background: #fff;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-footer .btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 6px;
+}
+
+.modal .btn-crimson {
+    background: #005566; /* Teal instead of crimson */
+    color: #fff;
+}
+
+/* Settings Modal Specific */
+#settingsModal .modal-dialog {
+    max-width: 600px;
+}
+
+#settingsModal .modal-header {
+    background: #005566; /* Teal instead of crimson */
+}
+
+/* View Profile Modal Specific */
+#viewProfileModal .modal-dialog {
+    max-width: 900px;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: 600;
+    color: #222; /* Darker for visibility */
+    font-size: 0.95rem;
+}
+
+.form-control,
+.form-select {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #222; /* Ensure form text is visible */
+}
+
+/* Alerts */
+.alert-dismissible {
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 70px;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .settings-btn {
+        margin-top: 10px;
+    }
+    
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-container {
+        padding: 15px;
+    }
+    
+    .profile-title {
+        font-size: 1.5rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .patient-section,
+    .consultations-section {
+        padding: 15px;
+    }
+    
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 8px;
+    }
+    
+    .sidebar {
+        width: 200px;
+    }
+    
+    .sidebar-toggle {
+        font-size: 1.5rem;
+        padding: 4px 8px;
+    }
+}

@@ -1,0 +1,51 @@
+# Set PHP timezone
+php_value date.timezone "Asia/Manila"
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # =====================================
+    # 1. HTTPS Redirection (Skip for localhost and POST requests)
+    # =====================================
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # =====================================
+    # 2. Remove .php Extension (Clean URLs)
+    # =====================================
+    RewriteCond %{HTTP:X-Requested-With} !XMLHttpRequest
+    RewriteCond %{THE_REQUEST} \s/([^/.]+)\.php [NC]
+    RewriteRule ^ /%1 [R=301,L]
+
+    # =====================================
+    # 3. Internally Add .php Extension (Silent Rewrite)
+    # =====================================
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+?)/?$ $1.php [L]
+
+    # =====================================
+    # 4. Allow Access to All .php Files (NO blocking)
+    # =====================================
+    # (Intentionally left blank to allow all)
+
+    # =====================================
+    # 5. Preserve POST Requests (No redirection)
+    # =====================================
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteRule ^ - [L]
+
+    # =====================================
+    # 6. Additional Security and Optimizations
+    # =====================================
+    Options -Indexes
+
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type, X-Requested-With"
+    </IfModule>
+</IfModule>

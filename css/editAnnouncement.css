@@ -1,0 +1,596 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+/* Burger Button */
+.burger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 18px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.burger-btn:hover {
+    background-color: #530b0b;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #8B0000;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    z-index: 900;
+}
+
+/* Sidebar Hidden and Active States */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 898;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Logo */
+.logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar Buttons */
+.btn-crimson {
+    background: #8B0000;
+    color: white;
+    border: none;
+    padding: 12px 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-crimson:hover {
+    background: #fbfbfb;
+    color: #8B0000;
+}
+
+/* Content Management Dropdown */
+.btn-crimson.dropdown-toggle {
+    background: none;
+    color: white;
+    border: none;
+    padding: 12px 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 16px;
+}
+
+.btn-crimson.dropdown-toggle:hover,
+.btn-crimson.dropdown-toggle.show {
+    background: #fbfbfb;
+    color: #8B0000;
+}
+
+.btn-crimson.dropdown-toggle:focus,
+.btn-crimson.dropdown-toggle:active {
+    background: #fbfbfb;
+    color: #8B0000;
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-toggle::after {
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #8B0000;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1100;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 15px;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #8B0000;
+    color: white;
+}
+
+/* Responsive Adjustments for Dropdown */
+@media (max-width: 768px) {
+    .btn-crimson.dropdown-toggle {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+    .dropdown-menu {
+        font-size: 13px;
+    }
+    .dropdown-item {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-crimson.dropdown-toggle {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+}
+
+/* Health Services Section */
+.health-services {
+    margin-bottom: 2.5rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    margin-left: 250px;
+    background-color: #f8f9fa;
+    color: #212529;
+    min-height: 100vh;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease-in-out, padding 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main Content with Sidebar Active */
+.main-content.sidebar-active {
+    margin-left: 250px;
+}
+
+/* Announcement Container */
+.announcement-container {
+    width: 100%;
+    max-width: 1900px;
+    background: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Announcements */
+.announcement {
+    background: #ffffff;
+    padding: 0;
+    border: 2px solid #8B0000;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Announcement Content */
+.announcement-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Announcement Image */
+.announcement-img {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Text Section */
+.announcement-content > div {
+    flex-grow: 1;
+    padding: 10px 0;
+}
+
+/* Headings */
+.announcement h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #8B0000;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Paragraphs */
+.announcement p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Button Container */
+.d-flex.justify-content-end.gap-2 {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: #8B0000;
+    color: white;
+    border: 2px solid #8B0000;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: #8B0000;
+    border-color: #8B0000;
+}
+
+/* Save Button (Post Announcement and Save Changes) */
+.btn-save {
+    background-color: #4B0000;
+    color: white;
+    border: 2px solid #4B0000;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.btn-save:hover {
+    background-color: white;
+    color: #4B0000;
+    border-color: #4B0000;
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: 2px solid #6c757d;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: 2px solid #dc3545;
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.btn-danger:hover {
+    background-color: white;
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Small Danger Button for Delete Labels */
+.btn-danger.btn-sm {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+}
+
+/* CMS Container */
+.cms-container {
+    width: 100%;
+    max-width: 1900px;
+    background: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* CMS Section Styling */
+.cms-section h3 {
+    font-size: 1.8rem;
+    color: #8B0000;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8B0000;
+    padding-bottom: 8px;
+}
+
+.cms-section .form-control {
+    border: 1px solid #8B0000;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.cms-section .form-label {
+    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* Staff, Core Value, Reason, and Scope Entries */
+.staff-entry,
+.core-value-entry,
+.reason-entry,
+.scope-entry {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.staff-entry .d-flex,
+.core-value-entry .d-flex,
+.reason-entry .d-flex,
+.scope-entry .d-flex {
+    justify-content: flex-start;
+}
+
+/* Form Preview */
+.preview-form .section-title {
+    color: #8B0000;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.preview-form .form-check {
+    margin-bottom: 10px;
+}
+
+.preview-form .form-check-input {
+    margin-right: 10px;
+    accent-color: #8B0000;
+}
+
+.preview-form .form-check-label {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .main-content.sidebar-active {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .burger-btn {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .main-content.sidebar-active {
+        margin-left: 200px;
+        padding: 20px;
+    }
+
+    .announcement-container,
+    .cms-container {
+        padding: 20px;
+    }
+
+    .announcement-content {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .announcement-img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+
+    .d-flex.justify-content-end.gap-2 {
+        justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        padding: 5px 14px;
+        font-size: 0.85rem;
+    }
+
+    .btn-save {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .main-content.sidebar-active {
+        margin-left: 180px;
+        padding: 15px;
+    }
+
+    .announcement-container,
+    .cms-container {
+        padding: 15px;
+    }
+
+    .announcement h3 {
+        font-size: 20px;
+    }
+
+    .announcement p {
+        font-size: 16px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+
+    .btn-save {
+        padding: 3px 8px;
+        font-size: 0.75rem;
+    }
+
+    .cms-section h3 {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .health-services {
+        font-size: 0.9rem;
+    }
+
+    .preview-form .section-title {
+        font-size: 1rem;
+    }
+
+    .preview-form .form-control,
+    .preview-form .form-select {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    .preview-form .form-check-label {
+        font-size: 0.9rem;
+    }
+}
+.btn-cms {
+    padding: 5px 12px;
+    font-size: 14px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: auto;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cms:hover {
+    background-color: #c82333;
+}

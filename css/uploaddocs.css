@@ -1,0 +1,213 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #990000;
+    color: #333;
+}
+
+/* Center the container */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+  
+.hidden {
+    display: none;
+}
+.text-crimson {
+color: #8B0000;
+}
+.btn-crimson {
+background-color: #8B0000;
+color: white;
+}
+.btn-crimson:hover {
+background-color: #6d0000;
+color: white;
+}
+.list-group-item {
+cursor: pointer;
+}
+.form-check-input:checked {
+background-color: #8B0000;
+border-color: #8B0000;
+}
+
+.disabled-option {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Card container with scrollbar */
+.card {
+    max-width: 100%;
+    width: 500px;
+    max-height: 90vh; /* Prevent overflow */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Scrollbar Styling */
+.card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: #990000;
+    border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+    background: #7a0000;
+}
+
+/* Logo */
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+/* Headings */
+h3, h4 {
+    color: #990000;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-crimson {
+    background-color: #990000;
+    color: white;
+    border: none;
+    transition: background-color 0.2s;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-crimson:hover {
+    background-color: #7a0000;
+}
+
+/* Additional Button Styling */
+.btn-outline-primary {
+    color: #990000;
+    border: 1px solid #990000;
+    padding: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* Input Fields */
+.form-control {
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #990000;
+    box-shadow: 0 0 5px rgba(153, 0, 0, 0.5);
+    outline: none;
+}
+
+/* Radio Buttons */
+.list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* Add spacing between buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+    .card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+.text-crimson {
+color: #8B0000;
+}
+.btn-crimson {
+background-color: #8B0000;
+color: white;
+}
+.btn-crimson:hover {
+background-color: #6d0000;
+color: white;
+}
+.list-group-item {
+cursor: pointer;
+}
+.form-check-input:checked {
+background-color: #8B0000;
+border-color: #8B0000;
+}
+
+.list-group-item:has(input[type="radio"]:disabled) {
+background-color: #f8f9fa;
+color: #999;
+cursor: not-allowed;
+}
+
+.document-section {
+    display: none;
+}
+#submitBtn {
+    display: none;
+}
+.loading {
+    position: relative;
+}
+.loading::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+.error-border {
+    border-color: #dc3545 !important;
+}
+
